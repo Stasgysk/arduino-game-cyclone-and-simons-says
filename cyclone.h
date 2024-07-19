@@ -1,0 +1,44 @@
+#ifndef _CYCLONE_H
+#define _CYCLONE_H
+
+/* DEFINICIA PINOV LEDIEK */
+#define LED_PIN     3
+
+/* DEFINICIA POCTU LEDIEK */
+#define NUM_LEDS    47
+
+/* DEFINICIA PINOV TLACIDIEK */
+#define BTN_0_PIN       8 
+#define BTN_1_PIN       9
+#define BTN_2_PIN       10
+#define BTN_3_PIN       11
+
+/* HLAVNA HERNA SLUCKA */
+/** 
+ * KRUZI S KURZOROVOU LEDKOU A SPROSTREDKUVAVA INTERAKCIU S HRACOM
+ * @param LED_Duration -> URCUJE RYCHLOST KURZORU (V MILISEKUNDACH, MEDZI ZMENOU POZICIE) 
+*/
+bool cycloneMain(int LED_Duration);
+
+/* FUNKCIA NA INTERAKCIU HRACA */
+/**
+ * VYSVIECUJE KURZOR, UMOZNUJE SPROSTREDKOVANIE INPUTU
+ * @param LED_num -> AKTUALNA POZICIA KURZORU
+ * @param LED_Duration -> URCUJE RYCHLOST KURZORU (V MILISEKUNDACH, MEDZI ZMENOU POZICIE) 
+ */
+bool input_Loop(int LED_num,int LED_Duration);
+
+/* FINISH SCREEN ANIMACIA */
+/**
+ * SPUSTI ANIMACIU, INDIKUJUCU KONIEC HRY. BLIKA RYCHLEJSIE AK HRAC VYHRAL
+ * @param selected -> HRACOM VYBRANA LEDKA
+ */
+void finish_Screen(int selected);
+
+/* FUNKCIA NA CITANIA ZO VSTUPU
+   VRATI "true" AK JE STLACENE AKE KOLVEK TLACIDKO, "false" AK NIE JE */
+bool get_Input();
+
+/* ZMENA STAVU LEDIEK */
+void switch_LED(int LED_num,int col);
+#endif
